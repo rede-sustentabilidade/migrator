@@ -5,6 +5,8 @@
 -- PostgreSQL database dump
 --
 
+-- +goose StatementBegin
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -1557,3 +1559,5 @@ REVOKE ALL ON SCHEMA public FROM PUBLIC;
 REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
+
+-- +goose StatementEnd
