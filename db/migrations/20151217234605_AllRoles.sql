@@ -9,7 +9,7 @@ CREATE OR REPLACE FUNCTION public.is_owner_or_admin(bigint) RETURNS boolean
        AS $$
           SELECT
           current_user_id() = $1
-          OR current_user = 'rs_role_admin_master';
+          OR current_user = ANY(ARRAY['rs_role_admin_master', 'admin']);
        $$;
 
 CREATE ROLE rs_role_admin_master NOLOGIN;
