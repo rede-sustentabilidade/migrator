@@ -2,6 +2,11 @@
 -- +goose Up
 -- SQL in section 'Up' is executed when this migration is applied
 
+CREATE USER admin;
+CREATE USER web_user;
+CREATE USER anonymous;
+CREATE USER rede;
+
 -- +goose StatementBegin
 CREATE OR REPLACE FUNCTION public.all_rs_roles() RETURNS name[]
        LANGUAGE sql
