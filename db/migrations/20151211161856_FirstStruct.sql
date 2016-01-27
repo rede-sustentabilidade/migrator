@@ -7,6 +7,7 @@
 
 -- +goose StatementBegin
 
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -84,7 +85,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
 COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
 
 
-SET search_path = rs, pg_catalog;
+SET search_path = rs, pg_catalog, public;
 
 SET default_tablespace = '';
 
@@ -113,6 +114,12 @@ CREATE TABLE "LinkAtuacaoProfissional" (
 --
 -- Name: afiliados; Type: TABLE; Schema: rs; Owner: -; Tablespace: 
 --
+
+
+
+
+
+
 
 CREATE TABLE afiliados (
     user_id bigint NOT NULL,
@@ -612,7 +619,7 @@ CREATE TABLE users (
 );
 
 
-SET search_path = sqitch, pg_catalog;
+SET search_path = sqitch, pg_catalog, public;
 
 --
 -- Name: changes; Type: TABLE; Schema: sqitch; Owner: -; Tablespace: 
@@ -1098,7 +1105,7 @@ COMMENT ON COLUMN tags.planner_name IS 'Name of the user who planed the tag.';
 COMMENT ON COLUMN tags.planner_email IS 'Email address of the user who planned the tag.';
 
 
-SET search_path = rs, pg_catalog;
+SET search_path = rs, pg_catalog, public;
 
 --
 -- Name: user_id; Type: DEFAULT; Schema: rs; Owner: -
@@ -1315,7 +1322,7 @@ ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
-SET search_path = sqitch, pg_catalog;
+SET search_path = sqitch, pg_catalog, public;
 
 --
 -- Name: changes_pkey; Type: CONSTRAINT; Schema: sqitch; Owner: -; Tablespace: 
@@ -1389,7 +1396,7 @@ ALTER TABLE ONLY tags
     ADD CONSTRAINT tags_project_tag_key UNIQUE (project, tag);
 
 
-SET search_path = rs, pg_catalog;
+SET search_path = rs, pg_catalog, public;
 
 --
 -- Name: rs_migrate_LinkAfiliadoInteresse_id_areaInteresse1_idx; Type: INDEX; Schema: rs; Owner: -; Tablespace: 
@@ -1494,7 +1501,7 @@ ALTER TABLE ONLY impugnacoes
     ADD CONSTRAINT impugnacoes_quem_impugnou_fkey FOREIGN KEY (quem_impugnou) REFERENCES afiliados(user_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 
-SET search_path = sqitch, pg_catalog;
+SET search_path = sqitch, pg_catalog, public;
 
 --
 -- Name: changes_project_fkey; Type: FK CONSTRAINT; Schema: sqitch; Owner: -
