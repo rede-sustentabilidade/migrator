@@ -1560,4 +1560,6 @@ REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
+SET search_path = public, rs, pg_catalog;
+
 -- +goose StatementEnd
