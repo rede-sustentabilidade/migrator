@@ -1,0 +1,15 @@
+build:
+  image: golang
+  commands:
+    - go get bitbucket.org/liamstask/goose/cmd/goose
+    - go build
+#    - goose -env=staging up
+deploy:
+  git_push:
+    branch: develop
+    remote: dokku@redesustentabilidade.net:migrator
+    force: false
+  git_push:
+    branch: master
+    remote: dokku@redesustentabilidade.org.br:migrator
+    force: false
