@@ -6,6 +6,7 @@ CREATE USER admin;
 CREATE USER web_user;
 CREATE USER anonymous;
 CREATE USER rede;
+CREATE USER rs;
 
 -- +goose StatementBegin
 CREATE OR REPLACE FUNCTION public.all_rs_roles() RETURNS name[]
@@ -85,4 +86,8 @@ GRANT SELECT ON "1".filiados TO admin, web_user;
 -- +goose StatementBegin
 DROP FUNCTION public.all_rs_roles();
 DROP VIEW "1".filiados;
+DROP USER admin;
+DROP USER web_user;
+DROP USER anonymous;
+DROP USER rede;
 -- +goose StatementEnd
