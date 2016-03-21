@@ -13,3 +13,9 @@ insert into goose_db_version (version_id, is_applied) values (20151211161856, tr
 ## Usage
 
 See at (goose page)[https://bitbucket.org/liamstask/goose]] for more details
+
+## Start Server Postgrest
+
+```bash
+postgrest postgres://postgrest@127.0.0.1/rs-api-new -a anon  -p 3333 -j chave_jwt_token -s 1
+```
