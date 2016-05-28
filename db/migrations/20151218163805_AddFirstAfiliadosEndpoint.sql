@@ -2,13 +2,32 @@
 -- +goose Up
 -- SQL in section 'Up' is executed when this migration is applied
 
-CREATE USER admin;
-CREATE USER web_user;
-CREATE USER anonymous;
-CREATE USER rede;
-CREATE USER rs;
-
 -- +goose StatementBegin
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT * FROM   pg_catalog.pg_roles WHERE  rolname = 'admin') THEN
+     CREATE USER admin;
+  END IF;
+
+  IF NOT EXISTS (SELECT * FROM   pg_catalog.pg_roles WHERE  rolname = 'web_user') THEN
+      CREATE USER web_user;
+  END IF;
+
+  IF NOT EXISTS (SELECT * FROM   pg_catalog.pg_roles WHERE  rolname = 'anonymous') THEN
+     CREATE USER anonymous;
+  END IF;
+
+  IF NOT EXISTS (SELECT * FROM   pg_catalog.pg_roles WHERE  rolname = 'rede') THEN
+     CREATE USER rede;
+  END IF;
+
+  IF NOT EXISTS (SELECT * FROM   pg_catalog.pg_roles WHERE  rolname = 'rs') THEN
+     CREATE USER rs;
+  END IF;
+END
+$$;
+
 CREATE OR REPLACE FUNCTION public.all_rs_roles() RETURNS name[]
        LANGUAGE sql
        AS $$
